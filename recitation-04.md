@@ -36,7 +36,7 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 4. Assume that a word `w` appears `n` times. What is the **work** and **span** of `word_count_reduce` for this word, assuming a parallel implementation of the `reduce` function?
 
-**Enter answer here**
+With the parallel reduce function, you have W(n) = 2W(n/2) + O(1) since addition is an associative binary function that can be done in constant time. There will be $2^i$ nodes, where i= log2 n. Therefore, there will be n nodes so you have n* O(1) which is O(n). For the span, you have i levels to get n nodes. Therefore S(n) is O(logn).
 
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
@@ -52,7 +52,7 @@ for doc in docs:
 
 What is the problem that prevents us from easily parallelizing this solution?
 
-**Enter answer here**
+The problem comes from how the parallelism would handle the count of the words. If both processors hit the same word at once, they would simultaneously return old count + 1, which would result in a lost count.
 
 
 ## Part 2: Sentiment analysis
