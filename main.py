@@ -124,12 +124,7 @@ def sentiment_map(doc,
     >>> sentiment_map('it was a terrible waste of time')
     [('negative', 1), ('negative', 1)]
     """
-    
-    keys = doc.split()
-    sentiments = []
-    for w in keys:
-        if w in pos_terms:
-            sentiments.append(('positive', 1))
-        elif w in neg_terms:
-            sentiments.append(('negative', 1))
-    return sentiments
+
+    return [('positive', 1) for word in doc.split() if word in pos_terms] + \
+           [('negative', 1) for word in doc.split() if word in neg_terms]
+
