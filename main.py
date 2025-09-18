@@ -36,7 +36,7 @@ def word_count_map(doc):
     >>> word_count_map('i am sam i am')
     [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
     """
-    ###TODO
+    return [(word,1) for word in doc.split]
     
     
 
@@ -53,7 +53,9 @@ def word_count_reduce(group):
     
     NOTE: you should use call the `reduce` function here.
     """
-    ###TODO
+    key = group[0]
+    list_of_ones = group[1]
+    return (key, reduce(plus, 0, list_of_ones))
     
     
 
