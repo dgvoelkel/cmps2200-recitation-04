@@ -36,7 +36,7 @@ def word_count_map(doc):
     >>> word_count_map('i am sam i am')
     [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
     """
-    return [(word,1) for word in doc.split]
+    return [(word,1) for word in doc.split()]
     
     
 
